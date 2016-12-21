@@ -1,0 +1,111 @@
+<html>
+<head>
+	<title>
+	Testing prototype library pages: Usability tests
+	</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script>
+		// defines the various activites as an object
+		var activities = [
+			{
+				"activity" : 0,
+				"url" : "http://www.kbcc.cuny.edu",
+				"message" : "Look up a book called 'Animal Farm'."
+			},
+			{
+				"activity" : 1,
+				"url" : "http://b7jl.org",
+				"message" : "Look up a magazine article about Angela Merkel."
+			}
+		];
+
+		var opt = {autoOpen: false, position: [20,20]};
+
+		// this handles responses to the "Try it now!" button. Changes button text; opens the activity in a new window
+		function gotoactivity(id) {
+			$('#' + id).text('Completed!').removeClass('active').addClass('disabled');
+			window.open(activities[id]['url'], '',
+'left=200,top=20,width=1100,height=700');
+			$('#dialog').dialog(opt).dialog('open');
+			//$('#dialog').dialog().position('left');
+			$('#dialog').append('<p>' + activities[id]['message'] + '</p>');
+			//window.open('', '', 'left=20,top=20,width=160,height=300').document.write(startHTML + activities[id]['message'] + endHMTL)
+		};
+
+	</script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<style type="text/css">
+		h2 {padding:20px;}
+		h4 {padding:0px 20px 20px 20px;}
+		.activity-container {padding-left:200px;}
+		#dialog {display:none;}
+	</style>
+</head>
+
+<body>
+	<h2 id="header">
+		Welcome to our usability test!
+	</h2>
+	<h4>
+		<p>Click on the buttons below to try the activities. You will be given instructions on your task, and then taken to the page where you can attempt to complete your activity. Come back this page when you're ready to move on to the next activity!</p>
+	</h4>
+	<table class="table table-striped">
+		<tr>
+			<td>
+				<div class="activity-container">
+				Activity #1. <a href="" onclick="gotoactivity(this.id); return false;" class="btn btn-default active" role="button" id="0"> Try it now!</a>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="activity-container">
+				Activity #2. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="1">Try it now!</a>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="activity-container">
+				Activity #3. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="2">Try it now!</a>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="activity-container">
+				Activity #4. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="3">Try it now!</a>
+				</div>	
+			</td>
+		</tr> 
+		<tr>
+			<td>
+				<div class="activity-container">
+				Activity #5. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="4">Try it now!</a>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="activity-container">
+				Activity #6. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="5">Try it now!</a>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="activity-container">
+				Activity #7. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="6">Try it now!</a>
+				</div>	
+			</td>
+		</tr> 
+	</table>
+	<div id="dialog"><p>Your challenge for this activity is:</p></div>
+</body>
+</html>
