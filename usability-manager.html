@@ -15,26 +15,34 @@
 			{
 				"activity" : 0,
 				"url" : "http://www.kbcc.cuny.edu",
-				"message" : "Look up a book called 'Animal Farm'."
+				"message" : "Find the library's hours for today."
 			},
 			{
 				"activity" : 1,
-				"url" : "http://b7jl.org",
+				"url" : "http://www.google.com",
 				"message" : "Look up a magazine article about Angela Merkel."
+			},
+			{
+				"activity" : 2,
+				"url" : "http://www.nytimes.com",
+				"message" : "Find a newspaper article about Syrian refugees."
+			},
+			{
+				"activity" : 3,
+				"url" : "http://www.yahoo.com",
+				"message" : "Look up a book called 'Animal Farm'."
 			}
 		];
 
-		var opt = {autoOpen: false, position: [20,20]};
+		var startHTML = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><div class="alert alert-info" style="margin:15px">'
+		var endHTML = '</div>'
 
 		// this handles responses to the "Try it now!" button. Changes button text; opens the activity in a new window
 		function gotoactivity(id) {
 			$('#' + id).text('Completed!').removeClass('active').addClass('disabled');
 			window.open(activities[id]['url'], '',
 'left=200,top=20,width=1100,height=700');
-			$('#dialog').dialog(opt).dialog('open');
-			//$('#dialog').dialog().position('left');
-			$('#dialog').append('<p>' + activities[id]['message'] + '</p>');
-			//window.open('', '', 'left=20,top=20,width=160,height=300').document.write(startHTML + activities[id]['message'] + endHMTL)
+			window.open('', '', 'left=20,top=20,width=160,height=300').document.write(startHTML + activities[id]['message'] + endHTML)
 		};
 
 	</script>
