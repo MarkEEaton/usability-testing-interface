@@ -40,18 +40,21 @@
 
 		function checkChild(workspace) {
 			if (workspace.closed) {
-				alert("child window closed");
+				alert("workspace window closed");
 				clearInterval(timer);
+			};
+			if (instructions.closed) {
+			    alert("instructions window closed");
+			    clearInterval(timer);
 			};
 		}
 
 		// this handles responses to the "Try it now!" button. Changes button text; opens the activity in a new window
 		function gotoactivity(id) {
-			$('#' + id).text('Completed!').removeClass('active').addClass('disabled');
-			instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300').document.write(startHTML + activities[id]['message'] + endHTML);
+			$('#' + id).text('completed!').removeClass('active').addClass('disabled');
+			instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300');
+			instructions.document.body.innerHTML = startHTML + activities[id]['message'] + endHTML;
 			workspace = window.open(activities[id]['url'], 'workspace', 'left=200,top=20,width=1100,height=700');
-		    console.log(workspace.name);
-		    //console.log(instructions.name);
 			timer = setInterval(checkChild, 100, workspace);
 			}
 
