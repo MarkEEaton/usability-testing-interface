@@ -13,9 +13,10 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<style type="text/css">
-		h2 {padding:20px;}
+		h2 {padding:20px 20px 0px 20px;}
 		h4 {padding:0px 20px 20px 20px;}
 		.activity-container {padding-left:200px;}
+		.btn {margin-left:10px;}
 		#dialog {display:none;}
 	</style>
 </head>
@@ -24,56 +25,62 @@
 	<h2 id="header">
 		Welcome to our usability test!
 	</h2>
-	<h4>
-		<p>Click on the buttons below to try the activities. You will be given instructions on your task, and then taken to the page where you can attempt to complete your activity. Come back this page when you're ready to move on to the next activity!</p>
-	</h4>
+		<div class="alert alert-info"><p>
+			<ul>
+				<li>Click on the buttons below to try the activities.</li>
+				<li>In the left-hand window, you will be given instructions to complete your task.</li>
+				<li>In the right-hand window you can attempt to complete your activity.</li>
+				<li>Stop when you reach the page that says "Activity Completed".</li>
+				<li>Close the window and move on to the next exercise.</li>
+			</ul>
+		</p></div>
 	<table class="table table-striped">
 		<tr>
 			<td>
 				<div class="activity-container">
-				Activity #1. <a href="" onclick="gotoactivity(this.id); return false;" class="btn btn-default active" role="button" id="0"> Try it now!</a>
+				Activity #1 <a href="" onclick="gotoactivity(this.id); return false;" class="btn btn-default active" role="button" id="0"> Try it now!</a>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<div class="activity-container">
-				Activity #2. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="1">Try it now!</a>
+				Activity #2 <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="1">Try it now!</a>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<div class="activity-container">
-				Activity #3. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="2">Try it now!</a>
+				Activity #3 <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="2">Try it now!</a>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<div class="activity-container">
-				Activity #4. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="3">Try it now!</a>
+				Activity #4 <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="3">Try it now!</a>
 				</div>	
 			</td>
 		</tr> 
 		<tr>
 			<td>
 				<div class="activity-container">
-				Activity #5. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="4">Try it now!</a>
+				Activity #5 <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="4">Try it now!</a>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<div class="activity-container">
-				Activity #6. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="5">Try it now!</a>
+				Activity #6 <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="5">Try it now!</a>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<div class="activity-container">
-				Activity #7. <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="6">Try it now!</a>
+				Activity #7 <a href="" onclick="gotoactivity(this.id, 'http://www.kbcc.cuny.edu'); return false;" class="btn btn-default active" role="button" id="6">Try it now!</a>
 				</div>	
 			</td>
 		</tr> 

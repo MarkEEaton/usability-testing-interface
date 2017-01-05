@@ -22,27 +22,21 @@ var activities = [
 	}
 ];
 
-var startHTML = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><div class="alert alert-info" style="margin:15px">';
+var startHTML = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><div class="alert alert-warning" style="text-align:center"><b>Activity #' 
+var midHTML = '</b></div><div class="alert alert-info" style="margin:15px">';
 var endHTML = '</div>';
 var timer = undefined;
 
-// this deletes the activity windows if they are closed or minimized
-
-
 // this handles responses to the "Try it now!" button. Changes button text; opens the activity in a new window
 function gotoactivity(id) {
+	displayid = parseInt(id) + 1
 	$('#' + id).text('completed!').removeClass('active').addClass('disabled');
-	// the order in which the window with a url is passed matters 
-	// the second window passed will be the focused window
-	var instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300');
-	var workspace = window.open(activities[id]['url'], 'workspace', 'left=200,top=20,width=1000,height=700');
-	//instructions.document.body.innerHTML = startHTML + activities[id]['message'] + endHTML;
+	var instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300,menubar=no,titlebar=no');
+	var workspace = window.open(activities[id]['url'], 'workspace', 'left=200,top=20,width=1000,height=700,menubar=no,titlebar=no');
+	instructions.document.body.innerHTML = startHTML + displayid + midHTML + activities[id]['message'] + endHTML;
 
+	// closes one window when the other is closed
 	timer = setInterval(function() {
-		//$(workspace).blur(function() {
-	    //	alert("blur");
-	    //	workspace.close();
-	    //});
 	    console.log("checkChild");
 		if (instructions.closed) {
 			workspace.close();
