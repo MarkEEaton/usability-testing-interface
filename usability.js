@@ -1,27 +1,82 @@
-// defines the various activites as an object
-var activities = [
-	{
-		"activity" : 0,
-		"url" : "http://www.kbcc.cuny.edu",
-		"message" : "Find the library's hours for today."
-	},
-	{
-		"activity" : 1,
-		"url" : "http://www.google.com",
-		"message" : "Look up a magazine article about Angela Merkel."
-	},
-	{
-		"activity" : 2,
-		"url" : "http://www.nytimes.com",
-		"message" : "Find a newspaper article about Syrian refugees."
-	},
-	{
-		"activity" : 3,
-		"url" : "http://www.yahoo.com",
-		"message" : "Look up a book called 'Animal Farm'."
-	}
-];
+// list of questions. Each list in this list is a set of questions for a cohort.
+var giantjson = [
+	[
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype1",
+			"message" : "Find the library hours for today."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype2",
+			"message" : "Look up a magazine article about Angela Merkel."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype3",
+			"message" : "Find a newspaper article about Syrian refugees."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype4",
+			"message" : "Look up a book called Animal Farm."
+		}
+	],
+	[
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype2",
+			"message" : "Find the library hours for today."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype3",
+			"message" : "Look up a magazine article about Angela Merkel."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype4",
+			"message" : "Find a newspaper article about Syrian refugees."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype1",
+			"message" : "Look up a book called Animal Farm."
+		}
+	],
+	[
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype3",
+			"message" : "Find the library hours for today."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype4",
+			"message" : "Look up a magazine article about Angela Merkel."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype1",
+			"message" : "Find a newspaper article about Syrian refugees."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype2",
+			"message" : "Look up a book called Animal Farm."
+		}
+	],
+	[
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype4",
+			"message" : "Find the librarys hours for today."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype1",
+			"message" : "Look up a magazine article about Angela Merkel."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype2",
+			"message" : "Find a newspaper article about Syrian refugees."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype3",
+			"message" : "Look up a book called Animal Farm."
+		}
+	]
+];	
 
+// update the cohort to get a new combination of questions and interface
+cohort = 0;
+var activities = giantjson[cohort];
 var startHTML = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><div class="alert alert-warning" style="text-align:center"><b>Activity #' 
 var midHTML = '</b></div><div class="alert alert-info" style="margin:15px">';
 var endHTML = '</div>';
@@ -37,7 +92,6 @@ function gotoactivity(id) {
 
 	// closes one window when the other is closed
 	timer = setInterval(function() {
-	    console.log("checkChild");
 		if (instructions.closed) {
 			workspace.close();
 		    clearInterval(timer);
@@ -46,5 +100,5 @@ function gotoactivity(id) {
 			instructions.close();
 			clearInterval(timer);
 		}
-	}, 100);
+	}, 50);
 };
