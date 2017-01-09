@@ -87,12 +87,15 @@ function gotoactivity(id) {
 	displayid = parseInt(id) + 1
 	$('#' + id).text('completed!').removeClass('active').addClass('disabled');
 	var instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300,menubar=no,titlebar=no');
-	console.log(activities[id]['url']);
 	var workspace = window.open(activities[id]['url'], 'workspace', 'left=200,top=20,width=1000,height=700,menubar=no,titlebar=no,scrollbars=yes');
 	instructions.document.body.innerHTML = startHTML + displayid + midHTML + activities[id]['message'] + endHTML;
 
 	// closes one window when the other is closed
 	timer = setInterval(function() {
+		$(this).focus(function() {
+			workspace.close();
+			instructions.close();
+		});
 		if (instructions.closed) {
 			workspace.close();
 		    clearInterval(timer);
