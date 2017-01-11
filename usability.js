@@ -74,13 +74,30 @@ var giantjson = [
 	]
 ];	
 
-// update the cohort to get a new combination of questions and interface
+// select a cohort to get a unique combination of questions and interfaces
 cohort = 0;
 var activities = giantjson[cohort];
+
+
+// make the table using js
+var tableHTML1 = '<tr><td><div class="activity-container">Activity #';
+var tableHTML2 = '<a href="" onclick="gotoactivity(';
+var tableHTML3 = '); return false;" class="btn btn-default active" role="button" id="';
+var tableHTML4 = '"> Try it now!</a></div></td></tr>"';
+
+$(document).ready(function() {
+	for (i = 0; i < activities.length; i++) {
+		$("tbody").append(tableHTML1 + parseInt(i + 1) + tableHTML2 + i + tableHTML3 + i + tableHTML4);
+	};
+});
+
+
+// set some variables in preparation for gotoactivity()
 var startHTML = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><div class="alert alert-warning" style="text-align:center"><b>Activity #' 
 var midHTML = '</b></div><div class="alert alert-info" style="margin:15px">';
 var endHTML = '</div>';
 var timer = undefined;
+
 
 // this handles responses to the "Try it now!" button. Changes button text; opens the activity in a new window
 function gotoactivity(id) {
