@@ -77,6 +77,7 @@ var giantjson = [
 // select a cohort to get a unique combination of questions and interfaces
 cohort = 0;
 var activities = giantjson[cohort];
+counter = 0;
 
 
 // make the table using js
@@ -101,7 +102,8 @@ var timer = undefined;
 
 // this handles responses to the "Try it now!" button. Changes button text; opens the activity in a new window
 function gotoactivity(id) {
-	displayid = parseInt(id) + 1
+	counter++;
+	displayid = parseInt(id) + 1;
 	$('#' + id).text('completed!').removeClass('active').addClass('disabled');
 	var instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300,menubar=no,titlebar=no');
 	var workspace = window.open(activities[id]['url'], 'workspace', 'left=200,top=20,width=1195,height=750,menubar=no,titlebar=no,scrollbars=yes');
@@ -112,14 +114,28 @@ function gotoactivity(id) {
 		$(this).focus(function() {
 			workspace.close();
 			instructions.close();
+			completeactivities();
 		});
 		if (instructions.closed) {
 			workspace.close();
 		    clearInterval(timer);
+		    completeactivities();
 		}
 		else if (workspace.closed) {
 			instructions.close();
 			clearInterval(timer);
+			completeactivities();
 		}
 	}, 50);
 };
+
+// check that all activities are completed; if they are, display a congratulations screen
+function completeactivities() {
+	if (counter >= giantjson[cohort].length) {
+		var completeHTML = '<div class="alert alert-success"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" style="text-align:center"><b>Congratulations!</b><br>You\'ve completed our usability test!</div>'
+		var complete = window.open('', 'complete', 'left=500,top=200,menubar=no,titlebar=no');
+		complete.document.body.innerHTML = completeHTML;
+		counter = 0;
+	}
+	else {}
+}
