@@ -104,7 +104,7 @@ function gotoactivity(id) {
 	displayid = parseInt(id) + 1
 	$('#' + id).text('completed!').removeClass('active').addClass('disabled');
 	var instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300,menubar=no,titlebar=no');
-	var workspace = window.open(activities[id]['url'], 'workspace', 'left=200,top=20,width=1000,height=700,menubar=no,titlebar=no,scrollbars=yes');
+	var workspace = window.open(activities[id]['url'], 'workspace', 'left=200,top=20,width=1195,height=750,menubar=no,titlebar=no,scrollbars=yes');
 	instructions.document.body.innerHTML = startHTML + displayid + midHTML + activities[id]['message'] + endHTML;
 
 	// closes one window when the other is closed
