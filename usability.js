@@ -75,9 +75,9 @@ var giantjson = [
 ];	
 
 // select a cohort to get a unique combination of questions and interfaces
+counter = 0;
 cohort = 0;
 var activities = giantjson[cohort];
-counter = 0;
 
 
 // make the table using js
@@ -132,8 +132,8 @@ function gotoactivity(id) {
 // check that all activities are completed; if they are, display a congratulations screen
 function completeactivities() {
 	if (counter >= giantjson[cohort].length) {
-		var completeHTML = '<div class="alert alert-success"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" style="text-align:center"><b>Congratulations!</b><br>You\'ve completed our usability test!</div>'
-		var complete = window.open('', 'complete', 'left=500,top=200,menubar=no,titlebar=no');
+		var completeHTML = '<div class="alert alert-success" style="text-align:center; display:block; width:200px; margin:3px auto 3px auto;"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><span><b>Congratulations!</b><br>You\'ve completed our usability test!</span></div>'
+		var complete = window.open('', 'complete', 'left=500,top=200,width=250,height=100,menubar=no,titlebar=no');
 		complete.document.body.innerHTML = completeHTML;
 		counter = 0;
 	}
