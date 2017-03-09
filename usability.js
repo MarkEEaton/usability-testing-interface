@@ -2,81 +2,118 @@
 var giantjson = [
 	[
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype1",
+			"url" : "http://kbcc.cuny.libguides.com/prototype1?cohort=1",
 			"message" : "Find the library hours for today."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype2",
+			"url" : "http://kbcc.cuny.libguides.com/prototype4?cohort=1",
 			"message" : "Look up a magazine article about Angela Merkel."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype3",
+			"url" : "http://kbcc.cuny.libguides.com/prototype5?cohort=1",
 			"message" : "Find a newspaper article about Syrian refugees."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype4",
+			"url" : "http://kbcc.cuny.libguides.com/prototype6?cohort=1",
 			"message" : "Look up a book called Animal Farm."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype7?cohort=1",
+			"message" : "This is the last question."
 		}
 	],
 	[
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype2",
+			"url" : "http://kbcc.cuny.libguides.com/prototype4?cohort=2",
 			"message" : "Find the library hours for today."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype3",
+			"url" : "http://kbcc.cuny.libguides.com/prototype5?cohort=2",
 			"message" : "Look up a magazine article about Angela Merkel."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype4",
+			"url" : "http://kbcc.cuny.libguides.com/prototype6?cohort=2",
 			"message" : "Find a newspaper article about Syrian refugees."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype1",
+			"url" : "http://kbcc.cuny.libguides.com/prototype7?cohort=2",
 			"message" : "Look up a book called Animal Farm."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype1?cohort=2",
+			"message" : "This is the last question."
 		}
 	],
 	[
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype3",
+			"url" : "http://kbcc.cuny.libguides.com/prototype5?cohort=3",
 			"message" : "Find the library hours for today."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype4",
+			"url" : "http://kbcc.cuny.libguides.com/prototype6?cohort=3",
 			"message" : "Look up a magazine article about Angela Merkel."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype1",
+			"url" : "http://kbcc.cuny.libguides.com/prototype7?cohort=3",
 			"message" : "Find a newspaper article about Syrian refugees."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype2",
+			"url" : "http://kbcc.cuny.libguides.com/prototype1?cohort=3",
 			"message" : "Look up a book called Animal Farm."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype4?cohort=3",
+			"message" : "This is the last question."
 		}
 	],
 	[
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype4",
+			"url" : "http://kbcc.cuny.libguides.com/prototype6?cohort=4",
 			"message" : "Find the librarys hours for today."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype1",
+			"url" : "http://kbcc.cuny.libguides.com/prototype7?cohort=4",
 			"message" : "Look up a magazine article about Angela Merkel."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype2",
+			"url" : "http://kbcc.cuny.libguides.com/prototype1?cohort=4",
 			"message" : "Find a newspaper article about Syrian refugees."
 		},
 		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype3",
+			"url" : "http://kbcc.cuny.libguides.com/prototype4?cohort=4",
 			"message" : "Look up a book called Animal Farm."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype5?cohort=4",
+			"message" : "This is the last question."
+		}
+	]
+	[
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype7?cohort=5",
+			"message" : "Find the librarys hours for today."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype1?cohort=5",
+			"message" : "Look up a magazine article about Angela Merkel."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype4?cohort=5",
+			"message" : "Find a newspaper article about Syrian refugees."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype5?cohort=5",
+			"message" : "Look up a book called Animal Farm."
+		},
+		{
+			"url" : "http://kbcc.cuny.libguides.com/prototype6?cohort=5",
+			"message" : "This is the last question."
 		}
 	]
 ];	
 
-// select a cohort to get a unique combination of questions and interfaces
-counter = 0;
-cohort = 0;
+counter = 0; // do not change this
+cohort = 0; // select a cohort to get a unique combination of questions and interfaces
 var activities = giantjson[cohort];
 
 
