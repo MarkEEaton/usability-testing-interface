@@ -2,7 +2,7 @@
 function quest() {
     r = Math.floor(Math.random() * 15)
     if (asked.indexOf(r) > -1) {
-        return quest();
+        return quest();  // recursion!
     }
     else {
         return r;
@@ -44,8 +44,6 @@ var urls = ["http://kbcc.cuny.libguides.com/prototype1?question=" + questionlist
             "http://kbcc.cuny.libguides.com/prototype5?question=" + questionlist[2],
             "http://kbcc.cuny.libguides.com/prototype6?question=" + questionlist[3],
             "http://kbcc.cuny.libguides.com/prototype7?question=" + questionlist[4]]
-
-console.log(urls)
 
 counter = 0; // do not change this
 
@@ -101,10 +99,9 @@ function gotoactivity(id) {
 // check that all activities are completed; if they are, display a congratulations screen
 function completeactivities() {
 	if (counter >= questionlist.length) {
+		counter = 0;
 		var completeHTML = '<div class="alert alert-success" style="text-align:center; display:block; width:200px; margin:3px auto 3px auto;"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><span><b>Congratulations!</b><br>You\'ve completed our usability test!</span></div>'
 		var complete = window.open('', 'complete', 'left=500,top=200,width=250,height=100,menubar=no,titlebar=no');
 		complete.document.body.innerHTML = completeHTML;
-		counter = 0;
 	}
 	else {}
-}
