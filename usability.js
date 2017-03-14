@@ -1,121 +1,53 @@
-// list of questions. Each list in this list is a set of questions for a cohort.
-var giantjson = [
-	[
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype1?cohort=1",
-			"message" : "Find the library hours for today."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype4?cohort=1",
-			"message" : "Look up a magazine article about Angela Merkel."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype5?cohort=1",
-			"message" : "Find a newspaper article about Syrian refugees."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype6?cohort=1",
-			"message" : "Look up a book called Animal Farm."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype7?cohort=1",
-			"message" : "This is the last question."
-		}
-	],
-	[
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype4?cohort=2",
-			"message" : "Find the library hours for today."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype5?cohort=2",
-			"message" : "Look up a magazine article about Angela Merkel."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype6?cohort=2",
-			"message" : "Find a newspaper article about Syrian refugees."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype7?cohort=2",
-			"message" : "Look up a book called Animal Farm."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype1?cohort=2",
-			"message" : "This is the last question."
-		}
-	],
-	[
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype5?cohort=3",
-			"message" : "Find the library hours for today."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype6?cohort=3",
-			"message" : "Look up a magazine article about Angela Merkel."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype7?cohort=3",
-			"message" : "Find a newspaper article about Syrian refugees."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype1?cohort=3",
-			"message" : "Look up a book called Animal Farm."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype4?cohort=3",
-			"message" : "This is the last question."
-		}
-	],
-	[
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype6?cohort=4",
-			"message" : "Find the librarys hours for today."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype7?cohort=4",
-			"message" : "Look up a magazine article about Angela Merkel."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype1?cohort=4",
-			"message" : "Find a newspaper article about Syrian refugees."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype4?cohort=4",
-			"message" : "Look up a book called Animal Farm."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype5?cohort=4",
-			"message" : "This is the last question."
-		}
-	]
-	[
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype7?cohort=5",
-			"message" : "Find the librarys hours for today."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype1?cohort=5",
-			"message" : "Look up a magazine article about Angela Merkel."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype4?cohort=5",
-			"message" : "Find a newspaper article about Syrian refugees."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype5?cohort=5",
-			"message" : "Look up a book called Animal Farm."
-		},
-		{
-			"url" : "http://kbcc.cuny.libguides.com/prototype6?cohort=5",
-			"message" : "This is the last question."
-		}
-	]
-];	
+// generate a random question and check if it has already been asked 
+function quest() {
+    r = Math.floor(Math.random() * 15)
+    if (asked.indexOf(r) > -1) {
+        return quest();
+    }
+    else {
+        return r;
+    }
+}
+
+// assemble a randomized question list
+function randquestions() {
+    asked = []
+    for (i=0; i<5; i++) {
+        asked.push(quest())
+    }
+    return asked
+}
+
+questionlist = randquestions()
+
+
+// the full question list
+var questions = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  // 0
+                 ["Find a book by <b>Hemingway, Ernest</b> as an author."],  // 1
+                 [ "Check to see if the book <b>Goldfinch</b> is available to borrow for a four week period."], // 2
+                 ["Search for scholarly articles on '<b>community college students</b>'."],  // 3
+                 ["Find the database '<b>Academic Search Complete</b>'."],  // 4
+                 ["Find the database '<b>JSTOR</b>'."],  // 5
+                 ["Find circulation policies."],  // 6
+                 ["Calculate fines for a book that is five days overdue."], // 7
+                 ["Find the library hours for the Spring semester of 2017."],  // 8
+                 ["Use the 'Ask a Librarian' menu."],  // 9
+                 ["Search to see if a document is available on eReserve."],  // 10
+                 ["Open a new interlibrary loan account."],  // 11
+                 ["Request an interlibrary loan."],  // 12
+                 ["Find the library's Twitter feed."],  // 13
+                 ["Find the library's Goodreads profile."]]  // 14
+
+// the urls for the activities, with random questions
+var urls = ["http://kbcc.cuny.libguides.com/prototype1?question=" + questionlist[0],
+            "http://kbcc.cuny.libguides.com/prototype4?question=" + questionlist[1],
+            "http://kbcc.cuny.libguides.com/prototype5?question=" + questionlist[2],
+            "http://kbcc.cuny.libguides.com/prototype6?question=" + questionlist[3],
+            "http://kbcc.cuny.libguides.com/prototype7?question=" + questionlist[4]]
+
+console.log(urls)
 
 counter = 0; // do not change this
-cohort = 0; // select a cohort to get a unique combination of questions and interfaces
-var activities = giantjson[cohort];
-
 
 // make the table using js
 var tableHTML1 = '<tr><td><div class="activity-container">Activity #';
@@ -124,7 +56,7 @@ var tableHTML3 = '); return false;" class="btn btn-default active" role="button"
 var tableHTML4 = '"> Try it now!</a></div></td></tr>"';
 
 $(document).ready(function() {
-	for (i = 0; i < activities.length; i++) {
+	for (i = 0; i < questionlist.length; i++) {
 		$("tbody").append(tableHTML1 + parseInt(i + 1) + tableHTML2 + i + tableHTML3 + i + tableHTML4);
 	};
 });
@@ -143,8 +75,8 @@ function gotoactivity(id) {
 	displayid = parseInt(id) + 1;
 	$('#' + id).text('completed!').removeClass('active').addClass('disabled');
 	var instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300,menubar=no,titlebar=no');
-	var workspace = window.open(activities[id]['url'], 'workspace', 'left=200,top=20,width=1195,height=750,menubar=no,titlebar=no,scrollbars=yes');
-	instructions.document.body.innerHTML = startHTML + displayid + midHTML + activities[id]['message'] + endHTML;
+	var workspace = window.open(urls[id], 'workspace', 'left=200,top=20,width=1195,height=750,menubar=no,titlebar=no,scrollbars=yes');
+	instructions.document.body.innerHTML = startHTML + displayid + midHTML + questions[questionlist[id]] + endHTML;
 
 	// closes one window when the other is closed
 	timer = setInterval(function() {
@@ -168,7 +100,7 @@ function gotoactivity(id) {
 
 // check that all activities are completed; if they are, display a congratulations screen
 function completeactivities() {
-	if (counter >= giantjson[cohort].length) {
+	if (counter >= questionlist.length) {
 		var completeHTML = '<div class="alert alert-success" style="text-align:center; display:block; width:200px; margin:3px auto 3px auto;"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><span><b>Congratulations!</b><br>You\'ve completed our usability test!</span></div>'
 		var complete = window.open('', 'complete', 'left=500,top=200,width=250,height=100,menubar=no,titlebar=no');
 		complete.document.body.innerHTML = completeHTML;
