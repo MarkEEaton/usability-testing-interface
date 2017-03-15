@@ -38,12 +38,43 @@ var questions = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  
                  ["Find the library's Twitter feed."],  // 13
                  ["Find the library's Goodreads profile."]]  // 14
 
+group = []
+
+// group questions together for the purpose of having a combined heatmap of related questions
+function groupquestions(questionlist) {
+    for (i = 0; i < questionlist.length; i++) {
+        if ([0, 1, 2].indexOf(questionlist[i]) > -1) {
+            group[i] = 0
+            console.log('group 0')
+        }
+        else if ([3, 4, 5].indexOf(questionlist[i]) > -1) {
+            group[i] = 1
+            console.log('group 1')
+        }
+        else if ([6, 7, 8, 9, 10].indexOf(questionlist[i]) > -1) {
+            group[i] = 2
+            console.log('group 2')
+        }
+        else if ([11, 12].indexOf(questionlist[i]) > -1) {
+            group[i] = 3
+            console.log('group 3')
+        }
+        else if ([13, 14].indexOf(questionlist[i]) > -1) {
+            group[i] = 4
+            console.log('group 4')
+        }
+        else {console.log("what?")}
+    }
+}
+
+groupquestions(questionlist)
+
 // the urls for the activities, with random questions
-var urls = ["http://kbcc.cuny.libguides.com/prototype1?question=" + questionlist[0],
-            "http://kbcc.cuny.libguides.com/prototype4?question=" + questionlist[1],
-            "http://kbcc.cuny.libguides.com/prototype5?question=" + questionlist[2],
-            "http://kbcc.cuny.libguides.com/prototype6?question=" + questionlist[3],
-            "http://kbcc.cuny.libguides.com/prototype7?question=" + questionlist[4]]
+var urls = ["http://kbcc.cuny.libguides.com/prototype1?questiongroup=" +,
+            "http://kbcc.cuny.libguides.com/prototype4?questiongroup=" +,
+            "http://kbcc.cuny.libguides.com/prototype5?questiongroup=" +,
+            "http://kbcc.cuny.libguides.com/prototype6?questiongroup=" +,
+            "http://kbcc.cuny.libguides.com/prototype7?questiongroup=" +]
 
 counter = 0; // do not change this
 
