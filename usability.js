@@ -24,7 +24,7 @@ questionlist = randquestions()
 // the full question list
 var questions = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  // 0
                  ["Find a book by <b>Hemingway, Ernest</b> as an author."],  // 1
-                 [ "Check to see if the book <b>Goldfinch</b> is available to borrow for a four week period."], // 2
+                 [ "Check to see if the book <b>The Goldfinch</b> is available to borrow for a four week period."], // 2
                  ["Search for scholarly articles on '<b>community college students</b>'."],  // 3
                  ["Find the database '<b>Academic Search Complete</b>'."],  // 4
                  ["Find the database '<b>JSTOR</b>'."],  // 5
@@ -70,11 +70,11 @@ function groupquestions(questionlist) {
 groupquestions(questionlist)
 
 // the urls for the activities, with random questions
-var urls = ["http://kbcc.cuny.libguides.com/prototype1?questiongroup=" +,
-            "http://kbcc.cuny.libguides.com/prototype4?questiongroup=" +,
-            "http://kbcc.cuny.libguides.com/prototype5?questiongroup=" +,
-            "http://kbcc.cuny.libguides.com/prototype6?questiongroup=" +,
-            "http://kbcc.cuny.libguides.com/prototype7?questiongroup=" +]
+var urls = ["http://kbcc.cuny.libguides.com/prototype1?questiongroup=" + group[0],
+            "http://kbcc.cuny.libguides.com/prototype4?questiongroup=" + group[1],
+            "http://kbcc.cuny.libguides.com/prototype5?questiongroup=" + group[2],
+            "http://kbcc.cuny.libguides.com/prototype6?questiongroup=" + group[3],
+            "http://kbcc.cuny.libguides.com/prototype7?questiongroup=" + group[4]]
 
 counter = 0; // do not change this
 
@@ -136,3 +136,4 @@ function completeactivities() {
 		complete.document.body.innerHTML = completeHTML;
 	}
 	else {}
+}
