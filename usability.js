@@ -74,7 +74,7 @@ var urls = ["http://kbcc.cuny.libguides.com/prototype1?questiongroup=" + group[0
             "http://kbcc.cuny.libguides.com/prototype4?questiongroup=" + group[1],
             "http://kbcc.cuny.libguides.com/prototype5?questiongroup=" + group[2],
             "http://kbcc.cuny.libguides.com/prototype6?questiongroup=" + group[3],
-            "http://kbcc.cuny.libguides.com/prototype7?questiongroup=" + group[4]]
+            "http://kbcc.cuny.libguides.com/prototype8?questiongroup=" + group[4]]
 
 counter = 0; // do not change this
 
