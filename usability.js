@@ -27,7 +27,7 @@ var urls = ["http://kbcc.cuny.libguides.com/prototype1?questiongroup=0",
 
 // make the table using js
 var tableHTML1 = '<tr><td><div class="activity-container">Activity #';
-var tableHTML2 = '<a href="" target="_blank" class="btn btn-default active" role="button" id="'
+var tableHTML2 = '<a href="" target="_blank" class="btn btn-default active" role="button" id="';
 var tableHTML3 = '"> Try it now!</a></div></td></tr>';
 
 $(document).ready(function() {
@@ -35,4 +35,7 @@ $(document).ready(function() {
 		$("tbody").append(tableHTML1 + parseInt(i + 1) + tableHTML2 + i + tableHTML3);
         document.getElementById(i).href = urls[i];
 	};
+    $(".btn").click(function() {
+        $(this).text('completed!').removeClass('active').addClass('disabled');
+    });
 });
