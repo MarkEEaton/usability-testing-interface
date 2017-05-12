@@ -1,25 +1,4 @@
-// generate a random question and check if it has already been asked 
-function quest() {
-    r = Math.floor(Math.random() * 15)
-    if (asked.indexOf(r) > -1) {
-        return quest();  // recursion!
-    }
-    else {
-        return r;
-    }
-}
-
-// assemble a randomized question list
-function randquestions() {
-    asked = []
-    for (i=0; i<5; i++) {
-        asked.push(quest())
-    }
-    return asked
-}
-
-questionlist = randquestions()
-
+/*
 
 // the full question list
 var questions = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  // 0
@@ -37,103 +16,23 @@ var questions = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  
                  ["Request an interlibrary loan."],  // 12
                  ["Find the library's Twitter feed."],  // 13
                  ["Find the library's Goodreads profile."]]  // 14
-
-group = []
-
-// group questions together for the purpose of having a combined heatmap of related questions
-function groupquestions(questionlist) {
-    for (i = 0; i < questionlist.length; i++) {
-        if ([0, 1, 2].indexOf(questionlist[i]) > -1) {
-            group[i] = 0
-            console.log('group 0')
-        }
-        else if ([3, 4, 5].indexOf(questionlist[i]) > -1) {
-            group[i] = 1
-            console.log('group 1')
-        }
-        else if ([6, 7, 8, 9, 10].indexOf(questionlist[i]) > -1) {
-            group[i] = 2
-            console.log('group 2')
-        }
-        else if ([11, 12].indexOf(questionlist[i]) > -1) {
-            group[i] = 3
-            console.log('group 3')
-        }
-        else if ([13, 14].indexOf(questionlist[i]) > -1) {
-            group[i] = 4
-            console.log('group 4')
-        }
-        else {console.log("what?")}
-    }
-}
-
-groupquestions(questionlist)
+*/
 
 // the urls for the activities, with random questions
-var urls = ["http://kbcc.cuny.libguides.com/prototype1?questiongroup=" + group[0],
-            "http://kbcc.cuny.libguides.com/prototype4?questiongroup=" + group[1],
-            "http://kbcc.cuny.libguides.com/prototype5?questiongroup=" + group[2],
-            "http://kbcc.cuny.libguides.com/prototype6?questiongroup=" + group[3],
-            "http://kbcc.cuny.libguides.com/prototype8?questiongroup=" + group[4]]
-
-counter = 0; // do not change this
+var urls = ["http://kbcc.cuny.libguides.com/prototype1?questiongroup=0",
+            "http://kbcc.cuny.libguides.com/prototype4?questiongroup=1",
+            "http://kbcc.cuny.libguides.com/prototype5?questiongroup=2",
+            "http://kbcc.cuny.libguides.com/prototype6?questiongroup=3",
+            "http://kbcc.cuny.libguides.com/prototype8?questiongroup=4"]
 
 // make the table using js
 var tableHTML1 = '<tr><td><div class="activity-container">Activity #';
-var tableHTML2 = '<a href="" onclick="gotoactivity(';
-var tableHTML3 = '); return false;" class="btn btn-default active" role="button" id="';
-var tableHTML4 = '"> Try it now!</a></div></td></tr>"';
+var tableHTML2 = '<a href="" target="_blank" class="btn btn-default active" role="button" id="'
+var tableHTML3 = '"> Try it now!</a></div></td></tr>';
 
 $(document).ready(function() {
-	for (i = 0; i < questionlist.length; i++) {
-		$("tbody").append(tableHTML1 + parseInt(i + 1) + tableHTML2 + i + tableHTML3 + i + tableHTML4);
+	for (i = 0; i < urls.length; i++) {
+		$("tbody").append(tableHTML1 + parseInt(i + 1) + tableHTML2 + i + tableHTML3);
+        document.getElementById(i).href = urls[i];
 	};
 });
-
-
-// set some variables in preparation for gotoactivity()
-var startHTML = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><div class="alert alert-warning" style="text-align:center"><b>Activity #' 
-var midHTML = '</b></div><div class="alert alert-info" style="margin:15px">';
-var endHTML = '</div>';
-var timer = undefined;
-
-
-// this handles responses to the "Try it now!" button. Changes button text; opens the activity in a new window
-function gotoactivity(id) {
-	counter++;
-	displayid = parseInt(id) + 1;
-	$('#' + id).text('completed!').removeClass('active').addClass('disabled');
-	var instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300,menubar=no,titlebar=no');
-	var workspace = window.open(urls[id], 'workspace', 'left=200,top=20,width=1195,height=750,menubar=no,titlebar=no,scrollbars=yes');
-	instructions.document.body.innerHTML = startHTML + displayid + midHTML + questions[questionlist[id]] + endHTML;
-
-	// closes one window when the other is closed
-	timer = setInterval(function() {
-		$(this).focus(function() {
-			workspace.close();
-			instructions.close();
-			completeactivities();
-		});
-		if (instructions.closed) {
-			workspace.close();
-		    clearInterval(timer);
-		    completeactivities();
-		}
-		else if (workspace.closed) {
-			instructions.close();
-			clearInterval(timer);
-			completeactivities();
-		}
-	}, 50);
-};
-
-// check that all activities are completed; if they are, display a congratulations screen
-function completeactivities() {
-	if (counter >= questionlist.length) {
-		counter = 0;
-		var completeHTML = '<div class="alert alert-success" style="text-align:center; display:block; width:200px; margin:3px auto 3px auto;"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><span><b>Congratulations!</b><br>You\'ve completed our usability test!</span></div>'
-		var complete = window.open('', 'complete', 'left=500,top=200,width=250,height=100,menubar=no,titlebar=no');
-		complete.document.body.innerHTML = completeHTML;
-	}
-	else {}
-}
