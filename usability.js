@@ -1,5 +1,3 @@
-/*
-
 // the full question list
 var questions = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  // 0
                  ["Find a book by <b>Hemingway, Ernest</b> as an author."],  // 1
@@ -16,26 +14,56 @@ var questions = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  
                  ["Request an interlibrary loan."],  // 12
                  ["Find the library's Twitter feed."],  // 13
                  ["Find the library's Goodreads profile."]]  // 14
-*/
 
 // the urls for the activities, with random questions
-var urls = ["http://kbcc.cuny.libguides.com/prototype1?questiongroup=0",
-            "http://kbcc.cuny.libguides.com/prototype4?questiongroup=1",
-            "http://kbcc.cuny.libguides.com/prototype5?questiongroup=2",
-            "http://kbcc.cuny.libguides.com/prototype6?questiongroup=3",
-            "http://kbcc.cuny.libguides.com/prototype8?questiongroup=4"]
+var urls = ["http://kbcc.cuny.libguides.com/prototype9",
+            "http://kbcc.cuny.libguides.com/prototype10",
+            "http://kbcc.cuny.libguides.com/prototype11",
+            "http://kbcc.cuny.libguides.com/prototype12",
+            "http://kbcc.cuny.libguides.com/prototype13"]
 
 // make the table using js
 var tableHTML1 = '<tr><td><div class="activity-container">Activity #';
-var tableHTML2 = '<a href="" target="_blank" class="btn btn-default active" role="button" id="';
-var tableHTML3 = '"> Try it now!</a></div></td></tr>';
+var tableHTML2 = '<a href="" onclick="gotoactivity(';
+var tableHTML3 = '); return false;" class="btn btn-default active" role="button" id="';
+var tableHTML4 = '"> Try it now!</a></div></td></tr>';
+
+// set some variables in preparation for gotoactivity()
+var startHTML = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><div class="alert alert-warning" style="text-align:center"><b>Activity #' 
+var midHTML = '</b></div><div class="alert alert-info" style="margin:15px">';
+var endHTML = '</div>';
+var timer = undefined;
+
+// what to do when the user clicks on an activity
+function gotoactivity(id) {
+    displayid = parseInt(id) + 1;
+    var instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300,menubar=no,titlebar=no');
+    var workspace = window.open(urls[id], 'workspace', 'left=200,top=20,width=1195,height=750,menubar=no,titlebar=no,scrollbars=yes');
+    instructions.document.body.innerHTML = startHTML + displayid + midHTML + questions[id] + endHTML;
+
+    // closes one window when the other is closed
+    timer = setInterval(function() {
+        $(this).focus(function() {
+            workspace.close();
+            instructions.close();
+        });
+        if (instructions.closed) {
+            workspace.close();
+            clearInterval(timer);
+        }
+        else if (workspace.closed) {
+            instructions.close();
+            clearInterval(timer);
+        }
+    }, 50);
+};
 
 $(document).ready(function() {
 	for (i = 0; i < urls.length; i++) {
-		$("tbody").append(tableHTML1 + parseInt(i + 1) + tableHTML2 + i + tableHTML3);
-        document.getElementById(i).href = urls[i];
+		$("tbody").append(tableHTML1 + parseInt(i + 1) + tableHTML2 + i + tableHTML3 + i + tableHTML4);
 	};
     $(".btn").click(function() {
         $(this).text('completed!').removeClass('active').addClass('disabled');
     });
 });
+
