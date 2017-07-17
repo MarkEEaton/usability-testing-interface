@@ -1,28 +1,35 @@
 // the full question list
-var questions = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  // 0
-                 ["Find a book by <b>Hemingway, Ernest</b> as an author."],  // 1
-                 [ "Check to see if the book <b>The Goldfinch</b> is available to borrow for a four week period."], // 2
-                 ["Search for scholarly articles on '<b>community college students</b>'."],  // 3
-                 ["Find the database '<b>Academic Search Complete</b>'."],  // 4
-                 ["Find the database '<b>JSTOR</b>'."],  // 5
-                 ["Find circulation policies."],  // 6
-                 ["Calculate fines for a book that is five days overdue."], // 7
-                 ["Find the library hours for the Spring semester of 2017."],  // 8
-                 ["Use the 'Ask a Librarian' menu."],  // 9
-                 ["Search to see if a document is available on eReserve."],  // 10
-                 ["Open a new interlibrary loan account."],  // 11
-                 ["Request an interlibrary loan."],  // 12
-                 ["Find the library's Twitter feed."],  // 13
-                 ["Find the library's Goodreads profile."]]  // 14
+var originalquestions = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  // 0
+                         ["Find a book by <b>Hemingway, Ernest</b> as an author."],  // 1
+                         [ "Check to see if the book <b>The Goldfinch</b> is available to borrow for a four week period."], // 2
+                         ["Search for scholarly articles on '<b>community college students</b>'."],  // 3
+                         ["Find the database '<b>Academic Search Complete</b>'."],  // 4
+                         ["Find the database '<b>JSTOR</b>'."],  // 5
+                         ["Find circulation policies."],  // 6
+                         ["Calculate fines for a book that is five days overdue."], // 7
+                         ["Find the library hours for the Spring semester of 2017."],  // 8
+                         ["Use the 'Ask a Librarian' menu."],  // 9
+                         ["Search to see if a document is available on eReserve."],  // 10
+                         ["Open a new interlibrary loan account."],  // 11
+                         ["Request an interlibrary loan."],  // 12
+                         ["Find the library's Twitter feed."],  // 13
+                         ["Find the library's Goodreads profile."]]  // 14
 
-// the urls for the activities, with random questions
+var questions1 = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  // 0
+                  ["Search for scholarly articles on '<b>community college students</b>'."],  // 3
+                  ["Find circulation policies."], 
+                  ["Open a new interlibrary loan account."],  //11
+                  ["Find the library's Twitter feed."]]  // 13
+
+
+// the urls for the activities
 var urls = ["http://kbcc.cuny.libguides.com/prototype9",
             "http://kbcc.cuny.libguides.com/prototype10",
             "http://kbcc.cuny.libguides.com/prototype11",
             "http://kbcc.cuny.libguides.com/prototype12",
             "http://kbcc.cuny.libguides.com/prototype13"]
 
-// make the table using js
+// set some variables to create the table
 var tableHTML1 = '<tr><td><div class="activity-container">Activity #';
 var tableHTML2 = '<a href="" onclick="gotoactivity(';
 var tableHTML3 = '); return false;" class="btn btn-default active" role="button" id="';
@@ -39,7 +46,7 @@ function gotoactivity(id) {
     displayid = parseInt(id) + 1;
     var instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300,menubar=no,titlebar=no');
     var workspace = window.open(urls[id], 'workspace', 'left=200,top=20,width=1195,height=750,menubar=no,titlebar=no,scrollbars=yes');
-    instructions.document.body.innerHTML = startHTML + displayid + midHTML + questions[id] + endHTML;
+    instructions.document.body.innerHTML = startHTML + displayid + midHTML +questions1[id] + endHTML;
 
     // closes one window when the other is closed
     timer = setInterval(function() {
@@ -58,6 +65,7 @@ function gotoactivity(id) {
     }, 50);
 };
 
+// make the table using js
 $(document).ready(function() {
 	for (i = 0; i < urls.length; i++) {
 		$("tbody").append(tableHTML1 + parseInt(i + 1) + tableHTML2 + i + tableHTML3 + i + tableHTML4);
