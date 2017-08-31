@@ -1,33 +1,34 @@
-// the full question list
-var originalquestions = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  // 0
-                         ["Find a book by <b>Hemingway, Ernest</b> as an author."],  // 1
-                         [ "Check to see if the book <b>The Goldfinch</b> is available to borrow for a four week period."], // 2
-                         ["Search for scholarly articles on '<b>community college students</b>'."],  // 3
-                         ["Find the database '<b>Academic Search Complete</b>'."],  // 4
-                         ["Find the database '<b>JSTOR</b>'."],  // 5
-                         ["Find circulation policies."],  // 6
-                         ["Calculate fines for a book that is five days overdue."], // 7
-                         ["Find the library hours for the Spring semester of 2017."],  // 8
-                         ["Use the 'Ask a Librarian' menu."],  // 9
-                         ["Search to see if a document is available on eReserve."],  // 10
-                         ["Open a new interlibrary loan account."],  // 11
-                         ["Request an interlibrary loan."],  // 12
-                         ["Find the library's Twitter feed."],  // 13
-                         ["Find the library's Goodreads profile."]]  // 14
-
-var questions1 = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],  // 0
-                  ["Search for scholarly articles on '<b>community college students</b>'."],  // 3
+var questions1 = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],
+                  ["Search for scholarly articles on '<b>community college students</b>'."],
                   ["Find circulation policies."], 
-                  ["Open a new interlibrary loan account."],  //11
-                  ["Find the library's Twitter feed."]]  // 13
+                  ["Open a new interlibrary loan account."],
+                  ["Find the library's Twitter feed."]]
+
+var questions2 = [["Find a book by <b>Hemingway, Ernest</b> as an author."],
+                  ["Find the book '<b>College Algebra: a narrative approach</b>'."],
+                  ["Find the library hours for the Fall semester of 2017."],
+                  ["Request a book from another CUNY campus."],
+                  ["Find the periodical '<b>The American Journal of Clinical Nutrition</b>'."]]
+
+var questions3 = [["Check to see if the book <b>The Goldfinch</b> is available to borrow for a four week period."],
+                  ["Find the database '<b>Academic Search Complete</b>'."],
+                  ["Use the 'Ask a Librarian' menu."],
+                  ["Request an interlibrary loan."],
+                  ["Find the library's Goodreads profile."]]
+
+var questions4 = [["Find information on how to download an ebook"],
+                  ["Find the database '<b>JSTOR</b>'."],
+                  ["Search to see if a document is available on eReserve."],
+                  ["Find articles that are <b>for or against wind energy</b>"],
+                  ["Find the database '<b>Gale Virtual Reference Library</b>'."]]
 
 
 // the urls for the activities
-var urls = ["http://kbcc.cuny.libguides.com/prototype9",
-            "http://kbcc.cuny.libguides.com/prototype10",
-            "http://kbcc.cuny.libguides.com/prototype11",
-            "http://kbcc.cuny.libguides.com/prototype12",
-            "http://kbcc.cuny.libguides.com/prototype13"]
+var urls1 = ["http://kbcc.cuny.libguides.com/prototype9",
+             "http://kbcc.cuny.libguides.com/prototype10",
+             "http://kbcc.cuny.libguides.com/prototype11",
+             "http://kbcc.cuny.libguides.com/prototype12",
+             "http://kbcc.cuny.libguides.com/prototype13"]
 
 // set some variables to create the table
 var tableHTML1 = '<tr><td><div class="activity-container">Activity #';
