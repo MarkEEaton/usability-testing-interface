@@ -1,3 +1,4 @@
+// question lists for different cohorts
 var questions1 = [["Find the textbook title '<b>Anthropologist on Mars</b>'."],
                   ["Search for scholarly articles on '<b>community college students</b>'."],
                   ["Find circulation policies."], 
@@ -36,6 +37,10 @@ var urls2 = ["http://kbcc.cuny.libguides.com/prototype14",
              "http://kbcc.cuny.libguides.com/prototype17",
              "http://kbcc.cuny.libguides.com/prototype18"]
 
+// set the question list and the urls list to use 
+questions = questions1
+urls = urls1
+
 // set some variables to create the table
 var tableHTML1 = '<tr><td><div class="activity-container">Activity #';
 var tableHTML2 = '<a href="" onclick="gotoactivity(';
@@ -53,7 +58,7 @@ function gotoactivity(id) {
     displayid = parseInt(id) + 1;
     var instructions = window.open('', 'instructions', 'left=20,top=20,width=160,height=300,menubar=no,titlebar=no');
     var workspace = window.open(urls[id], 'workspace', 'left=200,top=20,width=1195,height=750,menubar=no,titlebar=no,scrollbars=yes');
-    instructions.document.body.innerHTML = startHTML + displayid + midHTML +questions1[id] + endHTML;
+    instructions.document.body.innerHTML = startHTML + displayid + midHTML + questions[id] + endHTML;
 
     // closes one window when the other is closed
     timer = setInterval(function() {
