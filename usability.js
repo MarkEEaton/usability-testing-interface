@@ -30,6 +30,12 @@ var urls1 = ["http://kbcc.cuny.libguides.com/prototype9",
              "http://kbcc.cuny.libguides.com/prototype12",
              "http://kbcc.cuny.libguides.com/prototype13"]
 
+var urls2 = ["http://kbcc.cuny.libguides.com/prototype14",
+             "http://kbcc.cuny.libguides.com/prototype15",
+             "http://kbcc.cuny.libguides.com/prototype16",
+             "http://kbcc.cuny.libguides.com/prototype17",
+             "http://kbcc.cuny.libguides.com/prototype18"]
+
 // set some variables to create the table
 var tableHTML1 = '<tr><td><div class="activity-container">Activity #';
 var tableHTML2 = '<a href="" onclick="gotoactivity(';
